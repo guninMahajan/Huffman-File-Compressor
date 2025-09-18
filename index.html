@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huffman Compression Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Huffman Compression</h1>
+        <p class="subtitle">Optimal lossless data compression using frequency-based binary encoding</p>
+
+        <div class="content-grid">
+            <div class="card">
+                <h2>🗜️ Compress</h2>
+                <div>
+                    <textarea class="text-area" id="inputText" placeholder="Enter text to compress..."></textarea>
+                    <button class="btn" id="compressTextBtn">Compress Text</button>
+                </div>
+                <div class="divider">Or</div>
+                <button class="btn" id="showFileUploadBtn">Upload a File</button>
+                <div id="file-upload-section">
+                    <div class="file-input-area" id="fileDropZone">
+                        <p>📁 Drag & drop a file here or click to browse</p>
+                        <input type="file" class="file-input" id="fileInput">
+                    </div>
+                    <div id="fileInfo"></div>
+                    <button class="btn" id="compressFileBtn" disabled>Compress File</button>
+                </div>
+                <div id="compressionResult"></div>
+            </div>
+
+            <div class="card">
+                <h2>📂 Decompress</h2>
+                <div class="file-input-area" id="decompressDropZone">
+                    <p>📦 Upload a .huff file to decompress</p>
+                    <input type="file" class="file-input" id="decompressInput" accept=".huff">
+                </div>
+                <div id="decompressFileInfo"></div>
+                <button class="btn" id="decompressBtn" disabled>Decompress File</button>
+                <div id="decompressionResult"></div>
+            </div>
+
+            <div class="card full-width">
+                <h2>📊 Compression Statistics</h2>
+                <div class="content-grid" id="stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="originalSize">0</div>
+                        <div class="stat-label">Original Size (bytes)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="compressedSize">0</div>
+                        <div class="stat-label">Compressed Size (bytes)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="compressionRatio">0%</div>
+                        <div class="stat-label">Compression Ratio</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="spaceSaving">0%</div>
+                        <div class="stat-label">Space Saving</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card full-width">
+                <h2>🌳 Huffman Tree Visualization</h2>
+                <div class="tree-container" id="treeContainer">
+                    <p style="text-align: center; opacity: 0.6; margin-top: 100px;">Compress some data to see the visualization</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📈 Character Frequencies</h2>
+                <div id="frequencyTable">
+                    <p style="text-align: center; opacity: 0.6;">No data to display</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🔢 Huffman Codes</h2>
+                <div id="codesDisplay">
+                    <p style="text-align: center; opacity: 0.6;">No codes to display</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
